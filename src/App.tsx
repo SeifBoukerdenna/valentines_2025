@@ -30,13 +30,16 @@ function App() {
       </div>
 
       <h1 className="romantic-title">
-        Maya, would you be be my Valentine?
+        Maya, would you grant me the honor of being my Valentine?
       </h1>
 
       <div className="buttons-container">
+        {/* YES button */}
         <button className="yes-button" onClick={handleYesClick}>
           YES
         </button>
+
+        {/* NO button (moves on hover) */}
         <button
           className="no-button"
           style={{ top: noButtonPos.top, left: noButtonPos.left }}
@@ -52,8 +55,7 @@ function App() {
           <div className="surprise-content">
             <h2>My heart is overjoyed!</h2>
             <p>
-              Thank you for saying YES! I’m counting down the moments
-              until our special Valentine’s Day together.
+              Yeahhhh
             </p>
             <div className="overlay-hearts">
               {Array.from({ length: 14 }).map((_, index) => (

@@ -45,9 +45,10 @@
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
+  max-width: 90%;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 
-  /* Soft blinking (optional) */
+  /* Soft glow effect */
   animation: glow 2s ease-in-out infinite alternate;
 }
 
@@ -83,7 +84,6 @@
   font-size: 1.3rem;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-
   box-shadow: 0 0 15px rgba(255, 92, 138, 0.6);
 }
 
@@ -114,6 +114,7 @@
   /* covers the entire container */
   overflow: hidden;
   pointer-events: none;
+  /* hearts won't block button clicks */
 }
 
 .heart-floating {
@@ -141,7 +142,7 @@
   }
 }
 
-/* Randomly position hearts in the background */
+/* Random positions for hearts in the background */
 .heart-floating:nth-child(1) {
   left: 10%;
   animation-delay: 0s;
@@ -205,6 +206,11 @@
   text-align: center;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
+  max-width: 90%;
+}
+
+.surprise-content h2 {
+  margin-bottom: 1rem;
 }
 
 /* Overlay hearts that pop up after yes */
@@ -309,4 +315,39 @@
 .overlay-heart:nth-child(14) {
   left: 30%;
   animation-delay: 5.2s;
+}
+
+/* MEDIA QUERIES: MAKE IT FRIENDLIER FOR SMALL SCREENS */
+@media (max-width: 600px) {
+  .romantic-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .yes-button,
+  .no-button {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .yes-button:hover {
+    transform: scale(1.05);
+    /* smaller hover effect on mobile */
+  }
+
+  .surprise-content {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .overlay-hearts {
+    width: 200px;
+    height: 200px;
+  }
 }
