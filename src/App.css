@@ -1,0 +1,312 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root container */
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  /* Romantic gradient background */
+  background: linear-gradient(135deg, #ff90b3, #ffa8a8, #ffccd5);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Subtle gradient animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Title */
+.romantic-title {
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+  /* Soft blinking (optional) */
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  }
+}
+
+/* Buttons Container */
+.buttons-container {
+  position: relative;
+  width: 80%;
+  max-width: 400px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+/* "YES" Button */
+.yes-button {
+  padding: 1rem 2rem;
+  background-color: #ff5c8a;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  box-shadow: 0 0 15px rgba(255, 92, 138, 0.6);
+}
+
+.yes-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255, 92, 138, 0.8);
+}
+
+/* "NO" Button - moves on hover */
+.no-button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2rem;
+  background-color: #fd6f96;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: default;
+  transition: top 0.3s ease, left 0.3s ease;
+  box-shadow: 0 0 15px rgba(253, 111, 150, 0.5);
+}
+
+/* Background Floating Hearts */
+.floating-hearts {
+  position: absolute;
+  inset: 0;
+  /* covers the entire container */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heart-floating {
+  position: absolute;
+  color: #ff2f4e;
+  font-size: 2rem;
+  opacity: 0.9;
+  animation: floatHearts 8s linear infinite;
+}
+
+/* Keyframes for floating hearts */
+@keyframes floatHearts {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0.8;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-10%) translateX(0);
+    opacity: 0;
+  }
+}
+
+/* Randomly position hearts in the background */
+.heart-floating:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.heart-floating:nth-child(2) {
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.heart-floating:nth-child(3) {
+  left: 40%;
+  animation-delay: 1s;
+}
+
+.heart-floating:nth-child(4) {
+  left: 60%;
+  animation-delay: 3s;
+}
+
+.heart-floating:nth-child(5) {
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+.heart-floating:nth-child(6) {
+  left: 50%;
+  animation-delay: 2.5s;
+}
+
+.heart-floating:nth-child(7) {
+  left: 15%;
+  animation-delay: 4s;
+}
+
+.heart-floating:nth-child(8) {
+  left: 85%;
+  animation-delay: 3.5s;
+}
+
+/* ... add more nth-child rules for variety if desired ... */
+
+/* Surprise Overlay */
+.surprise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 192, 203, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Surprise Content */
+.surprise-content {
+  background: #fff;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
+}
+
+/* Overlay hearts that pop up after yes */
+.overlay-hearts {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 1rem auto 0;
+  overflow: hidden;
+}
+
+.overlay-heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: 2rem;
+  animation: overlayFloatUp 4s infinite ease-in;
+  opacity: 0;
+}
+
+@keyframes overlayFloatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+}
+
+/* Random positions for overlay hearts */
+.overlay-heart:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.overlay-heart:nth-child(2) {
+  left: 40%;
+  animation-delay: 0.4s;
+}
+
+.overlay-heart:nth-child(3) {
+  left: 70%;
+  animation-delay: 0.8s;
+}
+
+.overlay-heart:nth-child(4) {
+  left: 20%;
+  animation-delay: 1.2s;
+}
+
+.overlay-heart:nth-child(5) {
+  left: 60%;
+  animation-delay: 1.6s;
+}
+
+.overlay-heart:nth-child(6) {
+  left: 80%;
+  animation-delay: 2.0s;
+}
+
+.overlay-heart:nth-child(7) {
+  left: 35%;
+  animation-delay: 2.4s;
+}
+
+.overlay-heart:nth-child(8) {
+  left: 55%;
+  animation-delay: 2.8s;
+}
+
+.overlay-heart:nth-child(9) {
+  left: 75%;
+  animation-delay: 3.2s;
+}
+
+.overlay-heart:nth-child(10) {
+  left: 25%;
+  animation-delay: 3.6s;
+}
+
+.overlay-heart:nth-child(11) {
+  left: 50%;
+  animation-delay: 4.0s;
+}
+
+.overlay-heart:nth-child(12) {
+  left: 65%;
+  animation-delay: 4.4s;
+}
+
+.overlay-heart:nth-child(13) {
+  left: 45%;
+  animation-delay: 4.8s;
+}
+
+.overlay-heart:nth-child(14) {
+  left: 30%;
+  animation-delay: 5.2s;
+}
